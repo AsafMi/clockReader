@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Mar 19 10:53:47 2020
-
-@author: Asaf Mizrahi
-"""
-
 import os
 import cv2 as cv
 import pickle
@@ -18,9 +11,11 @@ def save_obj(obj, name ):
     with open(name + '.pkl', 'wb') as f:
         pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
 
+
 def load_obj(name ):
     with open(name + '.pkl', 'rb') as f:
         return pickle.load(f)
+
 
 def rotate_image(image, center, angle):
   image_center = tuple(center)
@@ -28,8 +23,10 @@ def rotate_image(image, center, angle):
   result = cv.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv.INTER_LINEAR)
   return result
 
+
 def nothing(x):
     pass
+
 
 start = t.time()
 
